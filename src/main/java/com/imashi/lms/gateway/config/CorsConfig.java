@@ -15,7 +15,8 @@ public class CorsConfig {
 	@Bean
 	public CorsWebFilter corsWebFilter() {
 		CorsConfiguration corsConfig = new CorsConfiguration();
-		corsConfig.setAllowedOrigins(List.of("http://localhost:3000"));
+		// Allow both common frontend ports
+		corsConfig.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:3001"));
 		corsConfig.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
 		corsConfig.setAllowedHeaders(List.of("*"));
 		corsConfig.setAllowCredentials(true);
